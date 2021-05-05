@@ -83,10 +83,6 @@ public class AddressBookSource {
                 break;
         }
     }
-
-
-
-
     @Override
     public String toString() {
         return "AddressBookSource{" +
@@ -100,11 +96,9 @@ public class AddressBookSource {
                 " \nphoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
