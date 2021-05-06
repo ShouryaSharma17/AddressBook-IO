@@ -144,7 +144,6 @@ public class AddressBookSource {
                 .anyMatch(personElement -> personElement.getFirstName().equals(name) || personElement
                         .getLastName().equals(name));
     }
-
     private Person findPerson(String name) {
         Person person = personList.stream().filter(
                 personElement -> personElement.getFirstName().equals(name) || personElement
@@ -158,7 +157,6 @@ public class AddressBookSource {
             return person;
         }
     }
-
     private  Person searchPersonThroughAddressBooks(String cityOrState){
 
         Person person =retrieveDetails.stream().filter(search -> search.getCity().equals(cityOrState) ||
@@ -170,16 +168,11 @@ public class AddressBookSource {
             return person;
         }
     }
-
-
-
     private static String getFName() {
         System.out.println("Checking for duplicates");
         System.out.println("Please enter first name");
         return scanner.next();
     }
-
-
     private static String getLName() {
         System.out.println("Please enter name");
         return scanner.next();
