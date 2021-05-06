@@ -1,5 +1,9 @@
 package com.addressbook;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class AddressBookSource {
     private static Scanner scanner = new Scanner(System.in);
     List<Person> personList = new ArrayList<>();
@@ -71,14 +75,14 @@ public class AddressBookSource {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1 -> {
-                    if (!isPersonExist(getName())) {
+                    if (!duplicateCheck(getFName(),getLName())){
                         personList.add(addPerson());
                     }
                     System.out.println(personList.toString());
                 }
                 case 2 -> {
                     System.out.println("Please enter name to Update");
-                    Person person1 = findPerson(getName());
+                    Person person1 = findPerson(getFName());
                     if (person1 != null) {
                         editPerson(person1);
                     }
@@ -86,7 +90,7 @@ public class AddressBookSource {
                 }
                 case 3 -> {
                     System.out.println("Please enter name to Delete");
-                    Person person = findPerson(getName());
+                    Person person = findPerson(getFName());
                     if (person != null) {
                         personList.remove(person);
                     }
@@ -119,12 +123,24 @@ public class AddressBookSource {
 
     }
 
-    private static String getName() {
+    private static String getFName() {
         System.out.println("Please enter name");
         return scanner.next();
     }
 
 
+    private static String getLName() {
+        System.out.println("Please enter name");
+        return scanner.next();
+    }
+
+    private boolean duplicateCheck(String firstname, String lastname){
+        return personList.stream().anyMatch(element -> element.getFirstName().equals(firstname) &&
+                element.getLastName().equals(lastname));
+    }
 
 
 }
+
+
+

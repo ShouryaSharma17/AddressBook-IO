@@ -36,12 +36,10 @@ public class AddressBookRunner {
                     }
                     System.out.println(personDetails.toString());
                 }
-
                 default -> {
                     scanner.close();
                     option = false;
                 }
-
             }
         }
     }
